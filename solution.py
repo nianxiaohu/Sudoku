@@ -1,5 +1,5 @@
 class Solution:
-    def solveSudoku(self, board: List[List[str]]) -> None:
+    def solveSudoku(self, board):
         """
         Do not return anything, modify board in-place instead.
         """
@@ -37,7 +37,7 @@ class Solution:
             rows[row][nbr] = False
             cols[col][nbr] = False
             grids[box(row, col)][nbr] = False
-            board[row][col] = '.'
+            board[row][col] = 'X'
 
         def place_next(row, col):
             """ Call backtrack in recursion until it reaches the end of board
@@ -52,7 +52,7 @@ class Solution:
                     backtrack(row, col + 1)
 
         def backtrack(row=0, col=0):
-            if board[row][col] == '.':
+            if board[row][col] == 'X':
                 for nbr in range(1, 10):
                     nbr -= 1
                     if isValid(row, col, nbr):
@@ -70,7 +70,7 @@ class Solution:
         grids = {i: [False] * 9 for i in range(9)}
         for row in range(9):
             for col in range(9):
-                if board[row][col] != '.':
+                if board[row][col] != 'X':
                     nbr = int(board[row][col])
                     nbr -= 1
                     rows[row][nbr] = True
