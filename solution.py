@@ -79,4 +79,4 @@ class Solution:
 
         solved = False
         backtrack()
-        return board
+        return solved
