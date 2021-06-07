@@ -1,5 +1,5 @@
 from solution import Solution
-3
+
 for i in range(1, 6):
     puzzle = []
     with open('puzzle{i}.txt'.format(i=i)) as f:
